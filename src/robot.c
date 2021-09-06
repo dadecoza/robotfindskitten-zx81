@@ -104,6 +104,7 @@ int move(int d)
 int is_unique_character(char c)
 {
     if (c == ROBOT) return 0;
+    if (c == 124) return 0;
     int i;
     for (i = 0; i < object_index; i++)
     {
@@ -131,7 +132,7 @@ char get_unique_character()
     char c;
     do
     {
-        c = (rand() % 92) + 33;
+        c = (rand() % 93) + 33;
     } while (!is_unique_character(c));
     return c;
 }
