@@ -1,4 +1,4 @@
-// zcc +zx81 -startup=2 -lm -create-app -o robot robot.c
+// zcc +zx81 -startup=2 -lm -create-app -o ..\robot robot.c
 
 /* robotfindskitten ZX81 Port
    @dadecoza 2021
@@ -149,24 +149,7 @@ void create_objects()
 {
     object_index = 0;
     int i, x, y;
-    objects[ROBOT_INDEX].x = rand() % SCREEN_WIDTH;
-    objects[ROBOT_INDEX].y = (rand() % (SCREEN_HEIGHT - 4)) + 4;
-    objects[ROBOT_INDEX].character = ROBOT;
-    objects[ROBOT_INDEX].message = 0;
-    object_index++;
-
-    do
-    {
-        objects[KITTEN_INDEX].x = rand() % SCREEN_WIDTH;
-        objects[KITTEN_INDEX].y = (rand() % (SCREEN_HEIGHT - 4)) + 4;
-    } while ((objects[KITTEN_INDEX].x != objects[ROBOT_INDEX].x) && (objects[KITTEN_INDEX].y != objects[ROBOT_INDEX].y));
-    kitten = get_unique_character();
-    // kitten = 'K';
-    objects[KITTEN_INDEX].character = kitten;
-    objects[KITTEN_INDEX].message = 0;
-    object_index++;
-
-    for (i = object_index; i < TOTAL_OBJECTS; i++)
+    for (i = 0; i < TOTAL_OBJECTS; i++)
     {
         do
         {
@@ -179,6 +162,8 @@ void create_objects()
         objects[object_index].character = get_unique_character();
         object_index++;
     }
+    objects[ROBOT_INDEX].character = ROBOT;
+    kitten = objects[KITTEN_INDEX].character;
 
     for (i = 0; i < TOTAL_OBJECTS; i++)
     {
