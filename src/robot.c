@@ -103,6 +103,7 @@ int move(int d)
 
 int is_unique_character(char c)
 {
+    if (c == ROBOT) return 0;
     int i;
     for (i = 0; i < object_index; i++)
     {
